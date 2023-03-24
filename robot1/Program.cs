@@ -23,7 +23,7 @@ bool pressed = false;
 while (count < 1000)
 {
     count++;
-    if (touch.IsPressed() && motor.)
+    if (touch.IsPressed() && !pressed)
     {
         Console.WriteLine("start!");
         motor.SetSpeed(100);
