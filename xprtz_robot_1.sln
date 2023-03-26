@@ -1,19 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30114.105
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33403.182
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "robot1", "robot1\robot1.csproj", "{4F117F72-FD0B-4422-A1BB-B8E129A74334}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "robot1", "robot1\robot1.csproj", "{4F117F72-FD0B-4422-A1BB-B8E129A74334}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "robot2", "robot2\robot2.csproj", "{019663D1-0107-4CD5-ABB7-BA502907CA64}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "robot2", "robot2\robot2.csproj", "{019663D1-0107-4CD5-ABB7-BA502907CA64}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Robot.Infrastructure.BrickPi", "Robot.Infrastructure.BrickPi\Robot.Infrastructure.BrickPi.csproj", "{60B014EA-33FB-4B88-BBD3-A3C5A8D2B8FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{4F117F72-FD0B-4422-A1BB-B8E129A74334}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -24,5 +23,15 @@ Global
 		{019663D1-0107-4CD5-ABB7-BA502907CA64}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{019663D1-0107-4CD5-ABB7-BA502907CA64}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{019663D1-0107-4CD5-ABB7-BA502907CA64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60B014EA-33FB-4B88-BBD3-A3C5A8D2B8FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60B014EA-33FB-4B88-BBD3-A3C5A8D2B8FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60B014EA-33FB-4B88-BBD3-A3C5A8D2B8FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60B014EA-33FB-4B88-BBD3-A3C5A8D2B8FB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3AD3199C-E499-43E6-B235-8F6BFC99BC76}
 	EndGlobalSection
 EndGlobal
