@@ -1,14 +1,10 @@
-﻿using Iot.Device.BrickPi3.Models;
+﻿using Motors = Iot.Device.BrickPi3.Movement;
+using Iot.Device.BrickPi3.Models;
 using Robot.Infrastructure.BrickPi.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Robot.Infrastructure.BrickPi.Movement
 {
-    public class MotorFactory
+    public class MotorFactory : IMotorFactory
     {
         private LegoBrick _brick;
 
@@ -17,9 +13,10 @@ namespace Robot.Infrastructure.BrickPi.Movement
             _brick= brick;
         }
 
-        public Motor Create(MotorPorts port)
+        public Motor CreateMotor(MotorPorts port)
         {
-            
+            var ev3Motor = new Motors.Motor(_brick.GetBrick(), MapMotorPort(port));
+            return new Motor(ev3Motor);
         }
 
         private static BrickPortMotor MapMotorPort(MotorPorts port) => port switch

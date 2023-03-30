@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Robot.Infrastructure.BrickPi.Sensors
 {
-    internal class Touch
+    public interface ISensor
     {
+        int GetValue();
     }
 }
