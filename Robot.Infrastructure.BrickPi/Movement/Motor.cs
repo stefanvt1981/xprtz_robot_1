@@ -10,7 +10,7 @@ using Iot.Device.Mcp23xxx;
 
 namespace Robot.Infrastructure.BrickPi.Movement
 {
-    public class Motor
+    public class Motor : IMotor
     {
         private readonly BrickPi3.Motor _motor;
         private Direction _direction;

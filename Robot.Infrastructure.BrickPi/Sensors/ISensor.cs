@@ -9,5 +9,6 @@ namespace Robot.Infrastructure.BrickPi.Sensors
     public interface ISensor
     {
         int GetValue();
+        bool ValueHasChanged();
     }
 }

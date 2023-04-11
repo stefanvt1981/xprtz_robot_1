@@ -1,4 +1,5 @@
 ﻿using robot2.Models;
+using robot2.Models.Enums;
 
 namespace robot2.DataStructures
 {
@@ -15,6 +16,51 @@ namespace robot2.DataStructures
         public CommandQueue CreateQueue()
         {
             return new CommandQueue();
+        }
+
+        public void AddCommand(Command command)
+        {
+            _queue.Enqueue(command);
+        }
+
+        public void RunNextCommand()
+        {
+            _queue.Dequeue().Execute();
+        }
+
+        public void ProcessConditions()
+        {
+            var conditions2Remove = new List<Condition>();
+
+            foreach (var condition in _conditions)
+            {
+                if (condition.EvaluateConditionTriggered(out var command2Execute))
+                {
+                    if (command2Execute == null) continue;
+
+                    _queue.Enqueue(command2Execute);
+
+                    if (condition.Type == ConditionType.SingleEvaluation)
+                    {
+                        conditions2Remove.Add(condition);
+                    }
+                }
+            }
+
+            foreach (var condition in conditions2Remove)
+            {
+                _conditions.Remove(condition);
+            }
+        }
+
+        public void AddCondition(Condition condition)
+        {
+            _conditions.Add(condition);
+        }
+
+        public void ClearConditions()
+        {
+            _conditions.Clear();
         }
     }
 }
