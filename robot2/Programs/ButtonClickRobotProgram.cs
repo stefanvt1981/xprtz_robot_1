@@ -5,18 +5,17 @@ using robot2.Models.Enums;
 
 namespace robot2.Programs
 {
-    public class ButtonClickProgram : Models.Program
+    public class ButtonClickRobotProgram : Models.RobotProgram
     {
         private IMotorFactory _motorFactory;
         private ISensorFactory _sensorFactory;
 
-        private bool _buttonPressedState = false;
-
-        public ButtonClickProgram(IMotorFactory motorFactory, ISensorFactory sensorFactory)
+        public ButtonClickRobotProgram(IMotorFactory motorFactory, ISensorFactory sensorFactory) : base()
         {
             _motorFactory = motorFactory;
             _sensorFactory = sensorFactory;
         }
+
         public override void ConfigureProgram()
         {
             var button = _sensorFactory.CreateTouchSensor(SensorPorts.S1);

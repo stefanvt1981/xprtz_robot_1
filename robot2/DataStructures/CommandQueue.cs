@@ -62,5 +62,21 @@ namespace robot2.DataStructures
         {
             _conditions.Clear();
         }
+
+
+        public void ClearCommands()
+        {
+            _queue.Clear();
+        }
+
+        public void LoadProgram(RobotProgram program)
+        {
+            ClearCommands();
+            ClearConditions();
+
+            _conditions.AddRange(program.GetConditions);
+
+            program.GetCommands.ForEach(command => _queue.Enqueue(command));
+        }
     }
 }

@@ -1,11 +1,11 @@
 ﻿namespace robot2.Models
 {
-    public abstract class Program
+    public abstract class RobotProgram
     {
         private List<Command> _startingCommands;
         private List<Condition> _conditions;
 
-        protected Program()
+        protected RobotProgram()
         {
             _startingCommands = new List<Command>();
             _conditions = new List<Condition>();
@@ -24,5 +24,9 @@
         }
 
         public abstract void ConfigureProgram();
+
+        public List<Command> GetCommands => _startingCommands;
+
+        public List<Condition> GetConditions => _conditions;
     }
 }
