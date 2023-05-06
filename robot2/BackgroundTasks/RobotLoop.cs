@@ -13,12 +13,13 @@ public class RobotLoop : BackgroundService
 
     public override Task StartAsync(CancellationToken cancellationToken)
     {
+        Console.WriteLine("RobotLoop started");
         return base.StartAsync(cancellationToken);
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        
+        Console.WriteLine("RobotLoop executing");
         while (stoppingToken.IsCancellationRequested)
         {
             // execute next command
@@ -35,6 +36,7 @@ public class RobotLoop : BackgroundService
 
     public override Task StopAsync(CancellationToken cancellationToken)
     {
+        Console.WriteLine("RobotLoop stopped");
         return base.StopAsync(cancellationToken);
     }
 }
