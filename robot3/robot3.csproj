@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Robot.Infrastructure.BrickPi\Robot.Infrastructure.BrickPi.csproj" />
+    <ProjectReference Include="..\robot2\robot2.csproj" />
   </ItemGroup>
 
 </Project>

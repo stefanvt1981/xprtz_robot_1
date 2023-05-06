@@ -3,9 +3,11 @@ using Robot.Infrastructure.BrickPi;
 using Robot.Infrastructure.BrickPi.Core;
 using Robot.Infrastructure.BrickPi.Movement;
 using Robot.Infrastructure.BrickPi.Sensors;
+using robot2.Programs;
 
 var builder = new ServiceCollection()
     .AddBrickPi()
+    .AddTransient<IButtonClickRobotProgram, ButtonClickRobotProgram>()
     .BuildServiceProvider();
 
 var legoBrick = builder.GetRequiredService<ILegoBrick>();
@@ -14,6 +16,8 @@ var sf = builder.GetRequiredService<ISensorFactory>();
 
 var motor = mf.CreateMotor(MotorPorts.MA);
 var touch = sf.CreateTouchSensor(SensorPorts.S1);
+
+var program = builder.GetRequiredService<IButtonClickRobotProgram>();
 
 int count = 0;
 bool pressed = false;
