@@ -20,7 +20,7 @@ public class RobotLoop : BackgroundService
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         Console.WriteLine("RobotLoop executing");
-        while (stoppingToken.IsCancellationRequested)
+        while (!stoppingToken.IsCancellationRequested)
         {
             // execute next command
             _commandQueue.RunNextCommand();
