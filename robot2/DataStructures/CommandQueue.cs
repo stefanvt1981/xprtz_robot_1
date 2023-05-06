@@ -45,6 +45,7 @@ namespace robot2.DataStructures
                 {
                     if (command2Execute == null) continue;
 
+                    Console.WriteLine($"Condition {condition.Name} triggered. Executing command {command2Execute.Name}");
                     _queue.Enqueue(command2Execute);
 
                     if (condition.Type == ConditionType.SingleEvaluation)
@@ -56,6 +57,7 @@ namespace robot2.DataStructures
 
             foreach (var condition in conditions2Remove)
             {
+                Console.WriteLine($"Removing condition {condition.Name}");
                 _conditions.Remove(condition);
             }
         }

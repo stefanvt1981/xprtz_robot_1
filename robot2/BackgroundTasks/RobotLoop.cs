@@ -34,18 +34,14 @@ public class RobotLoop : BackgroundService
 
         while (!stoppingToken.IsCancellationRequested)
         {
-            Console.WriteLine("RobotLoop run next");
             // execute next command
             _commandQueue.RunNextCommand();
 
-            Console.WriteLine("RobotLoop delay 1");
             await Task.Delay(100, stoppingToken);
 
-            Console.WriteLine("RobotLoop process conditions");
             // process conditions
             _commandQueue.ProcessConditions();
 
-            Console.WriteLine("RobotLoop delay 2");
             await Task.Delay(100, stoppingToken);
         }
     }
