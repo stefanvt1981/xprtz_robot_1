@@ -53,6 +53,7 @@ public class RobotLoop : BackgroundService
     public override Task StopAsync(CancellationToken cancellationToken)
     {
         Console.WriteLine("RobotLoop stopped");
+        _commandQueue.StopProgram();
         return base.StopAsync(cancellationToken);
     }
 }

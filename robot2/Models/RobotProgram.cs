@@ -11,6 +11,8 @@ namespace robot2.Models
         protected IMotorFactory _motorFactory;
         protected ISensorFactory _sensorFactory;
 
+        protected List<Motor> _motors;
+
         protected RobotProgram(IMotorFactory motorFactory, ISensorFactory sensorFactory)
         {
             _motorFactory = motorFactory;
@@ -36,5 +38,7 @@ namespace robot2.Models
         public List<Command> GetCommands => _startingCommands;
 
         public List<Condition> GetConditions => _conditions;
+
+        public List<Motor> GetMotors => _motors;
     }
 }

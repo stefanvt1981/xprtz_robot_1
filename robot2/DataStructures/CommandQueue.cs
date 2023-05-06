@@ -1,4 +1,5 @@
-﻿using robot2.Models;
+﻿using Robot.Infrastructure.BrickPi.Movement;
+using robot2.Models;
 using robot2.Models.Enums;
 
 namespace robot2.DataStructures
@@ -7,11 +8,13 @@ namespace robot2.DataStructures
     {
         private Queue<Command> _queue;
         private List<Condition> _conditions;
+        private List<Motor> _motors;
 
         private CommandQueue()
         {
             _queue = new Queue<Command>();
             _conditions = new List<Condition>();
+            _motors = new List<Motor>();
         }
 
         public static CommandQueue CreateQueue()
@@ -80,7 +83,23 @@ namespace robot2.DataStructures
 
             _conditions.AddRange(program.GetConditions);
 
+            SetMotors(program.GetMotors);
+
             program.GetCommands.ForEach(command => _queue.Enqueue(command));
+        }
+
+        public void SetMotors(List<Motor> motors)
+        {
+            _motors.Clear();
+            _motors.AddRange(motors);
+        }
+
+        public void StopProgram()
+        {
+            _motors.ForEach(motor => motor.Stop());
+
+            ClearConditions();
+            ClearCommands();
         }
     }
 }
