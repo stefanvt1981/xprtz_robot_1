@@ -2,7 +2,7 @@
 
 namespace Robot.Infrastructure.BrickPi.Core
 {
-    public class LegoBrick
+    public class LegoBrick : ILegoBrick
     {
         private Brick _brick;
         
