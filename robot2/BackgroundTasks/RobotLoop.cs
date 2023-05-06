@@ -37,12 +37,12 @@ public class RobotLoop : BackgroundService
             // execute next command
             _commandQueue.RunNextCommand();
 
-            await Task.Delay(100, stoppingToken);
+            await Task.Delay(10, stoppingToken);
 
             // process conditions
             _commandQueue.ProcessConditions();
 
-            await Task.Delay(100, stoppingToken);
+            await Task.Delay(10, stoppingToken);
         }
     }
 

@@ -39,8 +39,6 @@ namespace robot2.DataStructures
         {
             var conditions2Remove = new List<Condition>();
 
-            Console.WriteLine($"Processing {_conditions.Count} conditions");
-
             foreach (var condition in _conditions)
             {
                 if (condition.EvaluateConditionTriggered(out var command2Execute))

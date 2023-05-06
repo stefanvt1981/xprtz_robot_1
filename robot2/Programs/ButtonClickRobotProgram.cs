@@ -25,7 +25,7 @@ namespace robot2.Programs
                 "ButtonPressed", 
                 ConditionType.ContinuousEvaluation,
                 button,
-                (button) => ((TouchSensor)button).IsPressed() && ((TouchSensor)button).ValueHasChanged(),
+                (button) => ((TouchSensor)button).IsPressed(),
                 startCommand
             ));
 
@@ -33,7 +33,7 @@ namespace robot2.Programs
                 "ButtonReleased",
                 ConditionType.ContinuousEvaluation,
                 button,
-                (button) => !((TouchSensor)button).IsPressed() && ((TouchSensor)button).ValueHasChanged(),
+                (button) => !((TouchSensor)button).IsPressed(),
                 stopCommand
             ));
         }
