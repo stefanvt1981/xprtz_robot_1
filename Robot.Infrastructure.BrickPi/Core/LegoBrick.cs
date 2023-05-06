@@ -12,7 +12,7 @@ namespace Robot.Infrastructure.BrickPi.Core
         }
 
         public Brick GetBrick()
-        {
+        {            
             return _brick;
         }
 

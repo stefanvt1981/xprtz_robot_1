@@ -9,7 +9,7 @@ namespace Robot.Infrastructure.BrickPi
     {
         public static void AddBrickPi(this IServiceCollection services) 
         {
-            services.AddSingleton<ILegoBrick, LegoBrick>();
+            services.AddTransient<ILegoBrick, LegoBrick>();
             services.AddTransient<IMotorFactory, MotorFactory>();
             services.AddTransient<ISensorFactory, SensorFactory>();
         }
