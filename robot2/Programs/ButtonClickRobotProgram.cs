@@ -14,7 +14,10 @@ namespace robot2.Programs
         public override void ConfigureProgram()
         {
             var button = _sensorFactory.CreateTouchSensor(SensorPorts.S1);
+
             var motor = _motorFactory.CreateMotor(MotorPorts.MA);
+            _motors.Add(motor);
+
             var startCommand = Command.Create("motor1start", motor, (motor) => motor.Start(Direction.Forward));
             var stopCommand = Command.Create("motor1stop", motor, (motor) => motor.Stop());
             
