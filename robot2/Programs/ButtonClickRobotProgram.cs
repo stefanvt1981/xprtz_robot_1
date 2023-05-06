@@ -7,13 +7,8 @@ namespace robot2.Programs
 {
     public class ButtonClickRobotProgram : Models.RobotProgram, IButtonClickRobotProgram
     {
-        private IMotorFactory _motorFactory;
-        private ISensorFactory _sensorFactory;
-
-        public ButtonClickRobotProgram(IMotorFactory motorFactory, ISensorFactory sensorFactory) : base()
+        public ButtonClickRobotProgram(IMotorFactory motorFactory, ISensorFactory sensorFactory) : base(motorFactory, sensorFactory)
         {
-            _motorFactory = motorFactory;
-            _sensorFactory = sensorFactory;
         }
 
         public override void ConfigureProgram()

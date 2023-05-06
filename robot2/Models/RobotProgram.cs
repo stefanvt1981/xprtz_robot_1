@@ -1,24 +1,32 @@
-﻿namespace robot2.Models
+﻿using Robot.Infrastructure.BrickPi.Movement;
+using Robot.Infrastructure.BrickPi.Sensors;
+
+namespace robot2.Models
 {
     public abstract class RobotProgram
     {
         private List<Command> _startingCommands;
         private List<Condition> _conditions;
 
-        protected RobotProgram()
+        protected IMotorFactory _motorFactory;
+        protected ISensorFactory _sensorFactory;
+
+        protected RobotProgram(IMotorFactory motorFactory, ISensorFactory sensorFactory)
         {
+            _motorFactory = motorFactory;
+            _sensorFactory = sensorFactory;
             _startingCommands = new List<Command>();
             _conditions = new List<Condition>();
 
             ConfigureProgram();
         }
 
-        protected void AddCommand(Command command)
+        public void AddCommand(Command command)
         {
             _startingCommands.Add(command);
         }
 
-        protected void AddCondition(Condition condition)
+        public void AddCondition(Condition condition)
         {
             _conditions.Add(condition);
         }
