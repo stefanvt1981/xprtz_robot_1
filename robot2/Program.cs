@@ -1,6 +1,7 @@
 
 
 using Robot.Infrastructure.BrickPi;
+using robot2.BackgroundTasks;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddBrickPi();
+
+builder.Services.AddHostedService<RobotLoop>();
 
 var app = builder.Build();
 

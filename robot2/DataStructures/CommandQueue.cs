@@ -13,7 +13,7 @@ namespace robot2.DataStructures
             _queue = new Queue<Command>();
         }
 
-        public CommandQueue CreateQueue()
+        public static CommandQueue CreateQueue()
         {
             return new CommandQueue();
         }
@@ -25,7 +25,10 @@ namespace robot2.DataStructures
 
         public void RunNextCommand()
         {
-            _queue.Dequeue().Execute();
+            if (_queue.TryDequeue(out var command))
+            {
+                command.Execute();
+            }
         }
 
         public void ProcessConditions()
