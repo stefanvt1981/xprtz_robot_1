@@ -5,7 +5,7 @@ using robot2.Models.Enums;
 
 namespace robot2.Programs
 {
-    public class ButtonClickRobotProgram : Models.RobotProgram
+    public class ButtonClickRobotProgram : Models.RobotProgram, IButtonClickRobotProgram
     {
         private IMotorFactory _motorFactory;
         private ISensorFactory _sensorFactory;

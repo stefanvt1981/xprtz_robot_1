@@ -1,14 +1,18 @@
 using robot2.DataStructures;
+using robot2.Models;
+using robot2.Programs;
 
 namespace robot2.BackgroundTasks;
 
 public class RobotLoop : BackgroundService
 {
+    private readonly IServiceProvider _serviceProvider;
     private CommandQueue _commandQueue;
 
-    public RobotLoop()
+    public RobotLoop(IServiceProvider serviceProvider)
     {
         _commandQueue = CommandQueue.CreateQueue();
+        _serviceProvider = serviceProvider;
     }
 
     public override Task StartAsync(CancellationToken cancellationToken)
@@ -20,16 +24,28 @@ public class RobotLoop : BackgroundService
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         Console.WriteLine("RobotLoop executing");
+
+        using (IServiceScope scope = _serviceProvider.CreateScope())
+        {
+            var program = scope.ServiceProvider.GetRequiredService<IButtonClickRobotProgram>();
+
+            _commandQueue.LoadProgram((RobotProgram)program);
+        }
+
         while (!stoppingToken.IsCancellationRequested)
         {
+            Console.WriteLine("RobotLoop run next");
             // execute next command
             _commandQueue.RunNextCommand();
 
+            Console.WriteLine("RobotLoop delay 1");
             await Task.Delay(100, stoppingToken);
 
+            Console.WriteLine("RobotLoop process conditions");
             // process conditions
             _commandQueue.ProcessConditions();
 
+            Console.WriteLine("RobotLoop delay 2");
             await Task.Delay(100, stoppingToken);
         }
     }
