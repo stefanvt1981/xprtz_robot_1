@@ -12,9 +12,9 @@ namespace Robot.Infrastructure.BrickPi.Sensors
 {
     public class SensorFactory : ISensorFactory
     {
-        private LegoBrick _brick;
+        private ILegoBrick _brick;
 
-        public SensorFactory(LegoBrick brick)
+        public SensorFactory(ILegoBrick brick)
         {
             _brick = brick;
         }

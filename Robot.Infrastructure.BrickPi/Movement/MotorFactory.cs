@@ -6,9 +6,9 @@ namespace Robot.Infrastructure.BrickPi.Movement
 {
     public class MotorFactory : IMotorFactory
     {
-        private LegoBrick _brick;
+        private ILegoBrick _brick;
 
-        public MotorFactory(LegoBrick brick) 
+        public MotorFactory(ILegoBrick brick) 
         { 
             _brick= brick;
         }
