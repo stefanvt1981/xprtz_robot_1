@@ -19,6 +19,7 @@ namespace robot2.Models
             _sensorFactory = sensorFactory;
             _startingCommands = new List<Command>();
             _conditions = new List<Condition>();
+            _motors = new List<Motor>();
 
             ConfigureProgram();
         }
