@@ -11,6 +11,7 @@ namespace robot2.DataStructures
         private CommandQueue()
         {
             _queue = new Queue<Command>();
+            _conditions = new List<Condition>();
         }
 
         public static CommandQueue CreateQueue()
