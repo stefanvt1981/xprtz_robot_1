@@ -25,7 +25,7 @@ namespace robot2.Programs
                 "CloseRange", 
                 ConditionType.ContinuousEvaluation,
                 sensor,
-                (sensor) => ((USRangeSensor)sensor).GetDistance() < 1,
+                (sensor) => ((USRangeSensor)sensor).GetDistance() < 20,
                 startCommand
             ));
 
@@ -33,7 +33,7 @@ namespace robot2.Programs
                 "FarRange",
                 ConditionType.ContinuousEvaluation,
                 sensor,
-                (sensor) => ((USRangeSensor)sensor).GetDistance() >= 1,
+                (sensor) => ((USRangeSensor)sensor).GetDistance() >= 20,
                 stopCommand
             ));
         }
