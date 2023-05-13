@@ -13,7 +13,7 @@ namespace robot2.Programs
 
         public override void ConfigureProgram()
         {
-            var sensor = _sensorFactory.CreateUSRangeSensor(SensorPorts.S2);
+            var sensor = _sensorFactory.CreateUSRangeSensor(SensorPorts.S4);
 
             var motor = _motorFactory.CreateMotor(MotorPorts.MA);
             _motors.Add(motor);
