@@ -2,6 +2,7 @@
 using Iot.Device.BrickPi3.Sensors;
 using Iot.Device.BrickPi3.Models;
 using Iot.Device.BrickPi3.Movement;
+using System.Text;
 
 // See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
@@ -24,7 +25,7 @@ bool pressed = false;
 
 while (count < 1000)
 {
-    Console.WriteLine($"Range: {brick.GetSensor((byte)SensorPort.Port1)}");
+    Console.WriteLine($"Range: {Encoding.Default.GetString(brick.GetSensor((byte)SensorPort.Port1))}");
     //count++;
     //if (touch.IsPressed() && !pressed)
     //{
