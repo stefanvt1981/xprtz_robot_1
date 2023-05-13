@@ -1,5 +1,3 @@
-
-
 using Robot.Infrastructure.BrickPi;
 using robot2.BackgroundTasks;
 using robot2.Programs;
