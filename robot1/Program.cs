@@ -15,7 +15,7 @@ Console.WriteLine($"Board: {brickinfo.Board}");
 Console.WriteLine($"Hardware version: {brickinfo.HardwareVersion}");
 
 var touch = new EV3TouchSensor(brick, SensorPort.Port1);
-var range = new EV3UltraSonicSensor(brick, SensorPort.Port2);
+var range = new EV3UltraSonicSensor(brick, SensorPort.Port4);
 var motor = new Motor(brick, BrickPortMotor.PortA);
 
 range.Mode = Iot.Device.BrickPi3.Sensors.UltraSonicMode.Centimeter;
