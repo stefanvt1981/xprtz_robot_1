@@ -17,6 +17,7 @@ var touch = new EV3TouchSensor(brick, SensorPort.Port1);
 var range = new EV3UltraSonicSensor(brick, SensorPort.Port2);
 var motor = new Motor(brick, BrickPortMotor.PortA);
 
+range.Mode = Iot.Device.BrickPi3.Sensors.UltraSonicMode.Centimeter;
 
 int count = 0;
 bool pressed = false;
