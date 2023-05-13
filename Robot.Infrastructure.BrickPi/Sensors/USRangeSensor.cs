@@ -31,7 +31,7 @@ namespace Robot.Infrastructure.BrickPi.Sensors
         public int GetDistance()
         {
             var rangeByte = _brick.GetSensor((byte)_port);
-            var rangeInCm = Convert.ToInt32(rangeByte);
+            var rangeInCm = Convert.ToInt32(rangeByte[1]);
             if(rangeInCm == 255) rangeInCm = 0;
             return rangeInCm;
         }
