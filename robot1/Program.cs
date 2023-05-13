@@ -24,7 +24,7 @@ bool pressed = false;
 
 while (count < 1000)
 {
-    Console.WriteLine($"Range: {range.Value}");
+    Console.WriteLine($"Range: {range.ReadRaw()}");
     //count++;
     //if (touch.IsPressed() && !pressed)
     //{
