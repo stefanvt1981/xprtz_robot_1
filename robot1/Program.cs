@@ -14,6 +14,7 @@ Console.WriteLine($"Board: {brickinfo.Board}");
 Console.WriteLine($"Hardware version: {brickinfo.HardwareVersion}");
 
 var touch = new EV3TouchSensor(brick, SensorPort.Port1);
+var range = new EV3UltraSonicSensor(brick, SensorPort.Port2);
 var motor = new Motor(brick, BrickPortMotor.PortA);
 
 
@@ -22,23 +23,24 @@ bool pressed = false;
 
 while (count < 1000)
 {
-    count++;
-    if (touch.IsPressed() && !pressed)
-    {
-        Console.WriteLine("start!");
-        motor.SetSpeed(100);
-        //motor.Start();
-        pressed = true;
-    }
-    else if(!touch.IsPressed() && pressed)
-    {
-        Console.WriteLine("stop!");
-        motor.Stop();
-        pressed = false;
-    }
-    else
-    {
-        // nothing yet
-    }
+    Console.WriteLine($"Range: {range.Value}");
+    //count++;
+    //if (touch.IsPressed() && !pressed)
+    //{
+    //    Console.WriteLine("start!");
+    //    motor.SetSpeed(100);
+    //    //motor.Start();
+    //    pressed = true;
+    //}
+    //else if(!touch.IsPressed() && pressed)
+    //{
+    //    Console.WriteLine("stop!");
+    //    motor.Stop();
+    //    pressed = false;
+    //}
+    //else
+    //{
+    //    // nothing yet
+    //}
     await Task.Delay(50);
 }
