@@ -12,6 +12,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddBrickPi();
 builder.Services.AddTransient<IButtonClickRobotProgram, ButtonClickRobotProgram>();
+builder.Services.AddTransient<IRangeRobotProgram, RangeRobotProgram>();
 
 builder.Services.AddHostedService<RobotLoop>();
 

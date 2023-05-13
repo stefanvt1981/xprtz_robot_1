@@ -25,6 +25,12 @@ namespace Robot.Infrastructure.BrickPi.Sensors
             return new TouchSensor(ev3TouchSensor);
         }
 
+        public USRangeSensor CreateUSRangeSensor(SensorPorts port)
+        {
+            var ev3UltraSonicSensor = new SensorsEv3.EV3UltraSonicSensor(_brick.GetBrick(), MapMotorPort(port));
+            return new USRangeSensor(ev3UltraSonicSensor);
+        }
+
         private static SensorPort MapMotorPort(SensorPorts port) => port switch
         {
             SensorPorts.S1 => SensorPort.Port1,
