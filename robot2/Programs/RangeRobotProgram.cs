@@ -5,15 +5,15 @@ using robot2.Models.Enums;
 
 namespace robot2.Programs
 {
-    public class ButtonClickRobotProgram : Models.RobotProgram, IButtonClickRobotProgram
+    public class RangeRobotProgram : Models.RobotProgram, IRangeRobotProgram
     {
-        public ButtonClickRobotProgram(IMotorFactory motorFactory, ISensorFactory sensorFactory) : base(motorFactory, sensorFactory)
+        public RangeRobotProgram(IMotorFactory motorFactory, ISensorFactory sensorFactory) : base(motorFactory, sensorFactory)
         {
         }
 
         public override void ConfigureProgram()
         {
-            var sensor = _sensorFactory.Create(SensorPorts.S1);
+            var sensor = _sensorFactory.CreateUSRangeSensor(SensorPorts.S2);
 
             var motor = _motorFactory.CreateMotor(MotorPorts.MA);
             _motors.Add(motor);
@@ -22,18 +22,18 @@ namespace robot2.Programs
             var stopCommand = Command.Create("motor1stop", motor, (motor) => motor.Stop());
             
             AddCondition(new Condition(
-                "ButtonPressed", 
+                "CloseRange", 
                 ConditionType.ContinuousEvaluation,
-                button,
-                (button) => ((TouchSensor)button).IsPressed() && ((TouchSensor)button).ValueHasChanged(),
+                sensor,
+                (sensor) => ((USRangeSensor)sensor).GetDistance() < 10,
                 startCommand
             ));
 
             AddCondition(new Condition(
-                "ButtonReleased",
+                "FarRange",
                 ConditionType.ContinuousEvaluation,
-                button,
-                (button) => !((TouchSensor)button).IsPressed() && ((TouchSensor)button).ValueHasChanged(),
+                sensor,
+                (sensor) => ((USRangeSensor)sensor).GetDistance() >= 10,
                 stopCommand
             ));
         }
