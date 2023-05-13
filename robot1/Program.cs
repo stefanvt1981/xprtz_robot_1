@@ -58,5 +58,11 @@ void Print(byte[] array)
     }
     Console.WriteLine($"array length: {array.Length}");
     Console.WriteLine($"array: {BitConverter.ToString(array)}");
+    var intje = Convert.ToInt32(array[1]);
+    if (intje == 255)
+    {
+        intje = 0;
+    }
+    Console.WriteLine($"Lenght in CM: {intje}");
 
 }
