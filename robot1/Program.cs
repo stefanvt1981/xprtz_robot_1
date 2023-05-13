@@ -26,6 +26,7 @@ bool pressed = false;
 while (count < 1000)
 {
     Console.WriteLine($"Range: {Encoding.Default.GetString(brick.GetSensor((byte)SensorPort.Port4))}");
+    Console.WriteLine($"Range: {range.ReadRaw()}");
     //count++;
     //if (touch.IsPressed() && !pressed)
     //{
