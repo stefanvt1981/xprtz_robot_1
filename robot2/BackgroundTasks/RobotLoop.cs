@@ -27,8 +27,8 @@ public class RobotLoop : BackgroundService
 
         using (IServiceScope scope = _serviceProvider.CreateScope())
         {
-            //var program = scope.ServiceProvider.GetRequiredService<IButtonClickRobotProgram>();
-            var program = scope.ServiceProvider.GetRequiredService<IRangeRobotProgram>();
+            var program = scope.ServiceProvider.GetRequiredService<IButtonClickRobotProgram>();
+            //var program = scope.ServiceProvider.GetRequiredService<IRangeRobotProgram>();
 
             _commandQueue.LoadProgram((RobotProgram)program);
         }
