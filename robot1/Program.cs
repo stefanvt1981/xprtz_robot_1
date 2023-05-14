@@ -27,7 +27,7 @@ while (count < 1000)
 {
     //Console.WriteLine($"Range: {BitConverter.ToInt64(brick.GetSensor((byte)SensorPort.Port4))}");
     Print(brick.GetSensor((byte)SensorPort.Port4));
-    Console.WriteLine($"Range: {range.ReadRaw()}");
+    //Console.WriteLine($"Range: {range.ReadRaw()}");
     //count++;
     //if (touch.IsPressed() && !pressed)
     //{
@@ -46,7 +46,7 @@ while (count < 1000)
     //{
     //    // nothing yet
     //}
-    await Task.Delay(50);
+    await Task.Delay(2000);
 }
 
 void Print(byte[] array)
@@ -56,8 +56,8 @@ void Print(byte[] array)
         Console.WriteLine("array is null");
         return;
     }
-    Console.WriteLine($"array length: {array.Length}");
-    Console.WriteLine($"array: {BitConverter.ToString(array)}");
+    //Console.WriteLine($"array length: {array.Length}");
+    //Console.WriteLine($"array: {BitConverter.ToString(array)}");
     var intje = Convert.ToInt32(array[1]);
     if (intje == 255)
     {
